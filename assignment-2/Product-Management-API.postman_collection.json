@@ -1,0 +1,33 @@
+{
+  "info": {
+    "name": "Assignment 2 - Product Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" },
+    { "key": "productId", "value": "1" }
+  ],
+  "item": [
+    {
+      "name": "Add product",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"Wireless Mouse\",\n  \"price\": 799.00,\n  \"quantity\": 15\n}" },
+        "url": "{{baseUrl}}/products"
+      }
+    },
+    { "name": "Get all products", "request": { "method": "GET", "url": "{{baseUrl}}/products" } },
+    { "name": "Get one product", "request": { "method": "GET", "url": "{{baseUrl}}/products/{{productId}}" } },
+    {
+      "name": "Update product",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"Wireless Mouse\",\n  \"price\": 899.00,\n  \"quantity\": 20\n}" },
+        "url": "{{baseUrl}}/products/{{productId}}"
+      }
+    },
+    { "name": "Delete product", "request": { "method": "DELETE", "url": "{{baseUrl}}/products/{{productId}}" } }
+  ]
+}
